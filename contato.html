@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Ávila Perícias</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages-style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <span class="logo-icon">⚖️</span>
+                <span class="logo-text">Ávila Perícias</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Início</a>
+                <a href="sobre.html">👤 Sobre</a>
+                <a href="servicos.html">🔧 Serviços</a>
+                <a href="index.html#cases">📁 Casos</a>
+                <a href="contato.html" class="active">📞 Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Entre em Contato</h1>
+                <p class="page-subtitle">Solicite uma visita técnica ou tire suas dúvidas</p>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Formulário de Contato -->
+                    <div class="contact-form-wrapper glass-card">
+                        <h2>📩 Envie sua Mensagem</h2>
+                        <form id="contact-form" class="premium-form">
+                            <div class="form-group">
+                                <label for="nome">👤 Nome Completo</label>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">📧 E-mail</label>
+                                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">📱 Telefone</label>
+                                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="empresa">🏢 Empresa (opcional)</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="servico">🔧 Serviço de Interesse</label>
+                                <select id="servico" name="servico" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="esocial">eSocial</option>
+                                    <option value="ppra">PPRA - Programa de Prevenção de Riscos</option>
+                                    <option value="pgr">PGR - Gerenciamento de Riscos</option>
+                                    <option value="ltcat">LTCAT - Laudo de Condições Ambientais</option>
+                                    <option value="pcmso">PCMSO - Controle Médico</option>
+                                    <option value="insalubridade">Laudo de Insalubridade/Periculosidade</option>
+                                    <option value="avaliacoes">Avaliações de Agentes (Ruído, Calor, etc)</option>
+                                    <option value="pericias">Perícias Trabalhistas</option>
+                                    <option value="nr12">NR-12 - Máquinas e Equipamentos</option>
+                                    <option value="treinamentos">Treinamentos de Segurança</option>
+                                    <option value="ergonomia">Avaliação Ergonômica</option>
+                                    <option value="consultoria">Consultoria Empresarial</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagem">💬 Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva suas necessidades ou dúvidas..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <span>✅</span> Enviar Solicitação
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato -->
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info-card glass-card">
+                            <h3>📞 Telefone</h3>
+                            <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                        </div>
+
+                        <div class="contact-info-card glass-card">
+                            <h3>📧 E-mail</h3>
+                            <p><a href="mailto:contato@pericia.avila.inc">contato@pericia.avila.inc</a></p>
+                        </div>
+
+                        <div class="contact-info-card glass-card">
+                            <h3>📍 Localização</h3>
+                            <p>Atendimento em todo território nacional</p>
+                        </div>
+
+                        <div class="contact-info-card glass-card">
+                            <h3>🕐 Horário de Atendimento</h3>
+                            <p>Segunda a Sexta: 8h às 18h</p>
+                            <p>Sábado: 8h às 12h</p>
+                        </div>
+
+                        <div class="contact-info-card glass-card">
+                            <h3>🏢 Empresa</h3>
+                            <p><strong>GRB Avila Engenharia e Segurança do Trabalho Ltda</strong></p>
+                            <p>CNPJ: 49.572.984/0001-74</p>
+                        </div>
+
+                        <div class="contact-info-card glass-card social-links">
+                            <h3>🌐 Redes Sociais</h3>
+                            <div class="social-buttons">
+                                <a href="#" class="social-btn" title="WhatsApp">💬 WhatsApp</a>
+                                <a href="#" class="social-btn" title="LinkedIn">💼 LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-icon">❓</span>
+                    Perguntas Frequentes
+                </h2>
+
+                <div class="faq-grid">
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Quanto tempo leva para fazer uma perícia?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O prazo varia conforme a complexidade do caso. Perícias simples podem ser concluídas em 7-15 dias. Casos mais complexos podem levar de 30 a 60 dias.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Qual a validade do PPRA/PGR?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O PPRA/PGR deve ser revisado anualmente e sempre que houver mudanças significativas no ambiente de trabalho.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Quais documentos preciso para solicitar um serviço?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Geralmente precisamos de: CNPJ, contrato social, relação de funcionários por cargo, layout da empresa e documentos anteriores de SST (se houver).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Atendem em outras cidades/estados?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim! Atendemos todo o território nacional. Entre em contato para verificar disponibilidade e condições.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Como funciona o pagamento?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Aceitamos diversas formas de pagamento: transferência bancária, PIX, boleto e parcelamento no cartão. Condições específicas são definidas no orçamento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>O que está incluso no laudo técnico?</span>
+                            <span class="faq-icon">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nossos laudos incluem: análise completa, fundamentação legal, medições técnicas (quando aplicável), fotos, conclusões e ART (Anotação de Responsabilidade Técnica).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="container">
+            <p>© 2025 <strong>Ávila Perícias</strong> | Engenharia e Segurança do Trabalho | pericia.avila.inc</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

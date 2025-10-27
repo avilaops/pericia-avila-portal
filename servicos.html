@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Ávila Perícias</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages-style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <span class="logo-icon">⚖️</span>
+                <span class="logo-text">Ávila Perícias</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Início</a>
+                <a href="sobre.html">👤 Sobre</a>
+                <a href="servicos.html" class="active">🔧 Serviços</a>
+                <a href="index.html#cases">📁 Casos</a>
+                <a href="contato.html">📞 Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Nossos Serviços</h1>
+                <p class="page-subtitle">Soluções completas em Segurança do Trabalho e Perícias Técnicas</p>
+            </div>
+        </section>
+
+        <!-- Filtros de Categorias -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-nav">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="laudos">Laudos e Programas</button>
+                    <button class="filter-btn" data-filter="pericias">Perícias</button>
+                    <button class="filter-btn" data-filter="avaliacoes">Avaliações</button>
+                    <button class="filter-btn" data-filter="treinamentos">Treinamentos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Serviços -->
+        <section class="services-section">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- eSocial -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">💼</div>
+                            <h3>eSocial</h3>
+                        </div>
+                        <p class="service-description">Consultoria completa para implantação e manutenção do eSocial, garantindo conformidade com as obrigações trabalhistas digitais.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Levantamento de dados e documentos</li>
+                                <li>✓ Adequação de processos internos</li>
+                                <li>✓ Integração com sistemas de folha</li>
+                                <li>✓ Envio de eventos SST ao eSocial</li>
+                                <li>✓ Suporte contínuo e atualizações</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PPRA -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">📋</div>
+                            <h3>PPRA</h3>
+                            <small>Programa de Prevenção de Riscos Ambientais</small>
+                        </div>
+                        <p class="service-description">Identificação e avaliação de riscos ambientais no ambiente de trabalho com proposição de medidas preventivas.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Reconhecimento de riscos químicos, físicos e biológicos</li>
+                                <li>✓ Avaliação quantitativa de agentes nocivos</li>
+                                <li>✓ Definição de prioridades e metas</li>
+                                <li>✓ Cronograma de ações preventivas</li>
+                                <li>✓ Revisão anual e atualização contínua</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PGR -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">🎯</div>
+                            <h3>PGR</h3>
+                            <small>Programa de Gerenciamento de Riscos</small>
+                        </div>
+                        <p class="service-description">Gestão integrada de riscos ocupacionais conforme NR-01, substituindo o PPRA com abordagem mais abrangente.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Inventário de riscos ocupacionais</li>
+                                <li>✓ Avaliação e classificação de riscos</li>
+                                <li>✓ Plano de ação integrado</li>
+                                <li>✓ Matriz de riscos por função</li>
+                                <li>✓ Conformidade com NR-01 atualizada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- LTCAT -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">📄</div>
+                            <h3>LTCAT</h3>
+                            <small>Laudo Técnico de Condições Ambientais do Trabalho</small>
+                        </div>
+                        <p class="service-description">Documento obrigatório para comprovação de exposição a agentes nocivos e concessão de aposentadoria especial.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Caracterização de atividades especiais</li>
+                                <li>✓ Medições técnicas de agentes nocivos</li>
+                                <li>✓ Histórico de exposição por função</li>
+                                <li>✓ Fundamentação legal e técnica</li>
+                                <li>✓ Aceito pelo INSS e Receita Federal</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PCMSO -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">🏥</div>
+                            <h3>PCMSO</h3>
+                            <small>Programa de Controle Médico em Saúde Ocupacional</small>
+                        </div>
+                        <p class="service-description">Gestão da saúde ocupacional com exames médicos e monitoramento da saúde dos trabalhadores.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Definição de exames admissionais, periódicos e demissionais</li>
+                                <li>✓ Protocolo de exames complementares</li>
+                                <li>✓ Monitoramento de indicadores de saúde</li>
+                                <li>✓ Integração com PPRA/PGR</li>
+                                <li>✓ Conformidade com NR-07</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Laudos de Insalubridade e Periculosidade -->
+                    <div class="service-card glass-card" data-category="laudos pericias">
+                        <div class="service-header">
+                            <div class="service-icon">⚠️</div>
+                            <h3>Insalubridade e Periculosidade</h3>
+                        </div>
+                        <p class="service-description">Caracterização técnica e legal de atividades insalubres e perigosas para pagamento de adicionais.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Análise de exposição a agentes nocivos</li>
+                                <li>✓ Avaliação de periculosidade (inflamáveis, explosivos, energia elétrica)</li>
+                                <li>✓ Fundamentação legal (NR-15 e NR-16)</li>
+                                <li>✓ Cálculo de percentuais de adicional</li>
+                                <li>✓ Laudo aceito judicialmente</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Avaliações Quantitativas -->
+                    <div class="service-card glass-card" data-category="avaliacoes">
+                        <div class="service-header">
+                            <div class="service-icon">📊</div>
+                            <h3>Avaliações de Agentes</h3>
+                            <small>Ruído, Calor, Vibração e Químicos</small>
+                        </div>
+                        <p class="service-description">Medições técnicas precisas de agentes físicos e químicos conforme metodologias normativas.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Dosimetria de ruído ocupacional</li>
+                                <li>✓ Avaliação de stress térmico (IBUTG)</li>
+                                <li>✓ Medição de vibrações (corpo inteiro e mãos/braços)</li>
+                                <li>✓ Análise de gases, vapores e poeiras</li>
+                                <li>✓ Relatórios técnicos com ART</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Perícias Trabalhistas -->
+                    <div class="service-card glass-card" data-category="pericias">
+                        <div class="service-header">
+                            <div class="service-icon">⚖️</div>
+                            <h3>Perícias Trabalhistas</h3>
+                        </div>
+                        <p class="service-description">Atuação como perito judicial ou assistente técnico em processos trabalhistas.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Vistorias técnicas in loco</li>
+                                <li>✓ Elaboração de laudos periciais</li>
+                                <li>✓ Análise de nexo causal</li>
+                                <li>✓ Assistência técnica (reclamante ou reclamada)</li>
+                                <li>✓ Contestação de laudos oficiais</li>
+                                <li>✓ Esclarecimentos judiciais</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- NR-12 -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">⚙️</div>
+                            <h3>NR-12</h3>
+                            <small>Inventário de Máquinas e Equipamentos</small>
+                        </div>
+                        <p class="service-description">Adequação de máquinas e equipamentos conforme requisitos de segurança da NR-12.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Inventário completo de máquinas</li>
+                                <li>✓ Análise de riscos mecânicos</li>
+                                <li>✓ Projeto de proteções e dispositivos</li>
+                                <li>✓ Adequação de sistemas de segurança</li>
+                                <li>✓ Documentação técnica e ART</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Treinamentos -->
+                    <div class="service-card glass-card" data-category="treinamentos">
+                        <div class="service-header">
+                            <div class="service-icon">🎓</div>
+                            <h3>Treinamentos de Segurança</h3>
+                        </div>
+                        <p class="service-description">Capacitações obrigatórias e complementares para trabalhadores e equipes de segurança.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ NR-10 (Segurança em Eletricidade)</li>
+                                <li>✓ NR-35 (Trabalho em Altura)</li>
+                                <li>✓ NR-33 (Espaços Confinados)</li>
+                                <li>✓ NR-12 (Operação de Máquinas)</li>
+                                <li>✓ CIPA e Brigada de Incêndio</li>
+                                <li>✓ Treinamentos customizados</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Laudos Ambientais -->
+                    <div class="service-card glass-card" data-category="avaliacoes">
+                        <div class="service-header">
+                            <div class="service-icon">🌿</div>
+                            <h3>Avaliação Ambiental</h3>
+                        </div>
+                        <p class="service-description">Análise de impactos ambientais e conformidade com legislação ambiental.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Levantamento de aspectos ambientais</li>
+                                <li>✓ Análise de efluentes e resíduos</li>
+                                <li>✓ Conformidade com legislação</li>
+                                <li>✓ Licenciamento ambiental</li>
+                                <li>✓ Planos de gestão ambiental</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Ergonomia -->
+                    <div class="service-card glass-card" data-category="avaliacoes">
+                        <div class="service-header">
+                            <div class="service-icon">🪑</div>
+                            <h3>Avaliação Ergonômica</h3>
+                        </div>
+                        <p class="service-description">Análise ergonômica do trabalho (AET) conforme NR-17 para prevenção de doenças ocupacionais.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Análise de postos de trabalho</li>
+                                <li>✓ Avaliação de posturas e movimentos</li>
+                                <li>✓ Identificação de riscos ergonômicos</li>
+                                <li>✓ Recomendações de melhorias</li>
+                                <li>✓ Laudo técnico ergonômico</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- EPIs e EPCs -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">🦺</div>
+                            <h3>EPIs e EPCs</h3>
+                            <small>Análise e Especificação</small>
+                        </div>
+                        <p class="service-description">Especificação técnica de equipamentos de proteção individual e coletiva adequados aos riscos.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Levantamento de necessidades por função</li>
+                                <li>✓ Especificação técnica de EPIs (CA válido)</li>
+                                <li>✓ Projeto de proteções coletivas</li>
+                                <li>✓ Treinamento de uso correto</li>
+                                <li>✓ Gestão de entrega e controle</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Consultoria -->
+                    <div class="service-card glass-card" data-category="laudos">
+                        <div class="service-header">
+                            <div class="service-icon">💼</div>
+                            <h3>Consultoria Empresarial</h3>
+                        </div>
+                        <p class="service-description">Assessoria completa em medicina e segurança do trabalho para empresas de todos os portes.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Diagnóstico de conformidade legal</li>
+                                <li>✓ Implantação de SESMT</li>
+                                <li>✓ Gestão de SST terceirizada</li>
+                                <li>✓ Auditorias e inspeções periódicas</li>
+                                <li>✓ Suporte contínuo especializado</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Prevenção de Acidentes -->
+                    <div class="service-card glass-card" data-category="treinamentos">
+                        <div class="service-header">
+                            <div class="service-icon">🛡️</div>
+                            <h3>Programas de Prevenção</h3>
+                        </div>
+                        <p class="service-description">Programas estruturados de prevenção e controle de acidentes adaptados à realidade da empresa.</p>
+                        <button class="btn-expand" onclick="toggleService(this)">
+                            <span class="expand-text">Ver detalhes</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <div class="service-details">
+                            <ul>
+                                <li>✓ Análise de acidentes e incidentes</li>
+                                <li>✓ Definição de indicadores de segurança</li>
+                                <li>✓ Campanhas educativas</li>
+                                <li>✓ DDS (Diálogo Diário de Segurança)</li>
+                                <li>✓ Cultura de segurança organizacional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card glass-card">
+                    <h2>Interessado em Algum Serviço?</h2>
+                    <p>Entre em contato e solicite uma visita técnica sem compromisso!</p>
+                    <div class="cta-buttons">
+                        <a href="contato.html" class="btn btn-primary">📞 Solicitar Orçamento</a>
+                        <a href="index.html#cases" class="btn btn-secondary">📁 Ver Casos Realizados</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="container">
+            <p>© 2025 <strong>Ávila Perícias</strong> | Engenharia e Segurança do Trabalho | pericia.avila.inc</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>
