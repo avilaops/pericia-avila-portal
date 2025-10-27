@@ -3,55 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal do Perito - Administrativo</title>
+    <title>Dashboard Administrativo - Ávila Perícias</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-style.css">
 </head>
-<body>
-    <header>
-        <h1>Portal Administrativo do Perito</h1>
-        <nav>
-            <a href="index.html" class="btn">Página Inicial</a>
-        </nav>
-    </header>
-    <main>
-        <section class="admin-cases">
-            <h2>Meus Casos e Perícias</h2>
-            <form id="case-form">
-                <input type="text" id="empresa" placeholder="Empresa" required>
-                <input type="text" id="descricao" placeholder="Descrição da Perícia" required>
-                <input type="file" id="foto" accept="image/*" required>
-                <button type="submit" class="btn">Adicionar Caso</button>
-            </form>
-            <div class="cases-gallery" id="admin-cases-gallery">
-                <!-- Casos do perito -->
+<body class="admin-body">
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <span class="logo-icon">⚖️</span>
+                <span class="logo-text">Ávila Perícias</span>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Site</a>
+                <a href="#dashboard">📊 Dashboard</a>
+                <a href="#casos">📁 Casos</a>
+                <a href="#depoimentos">💬 Depoimentos</a>
+                <a href="#processos">⚖️ Processos</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <!-- Dashboard Stats -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="container">
+                <h1 class="admin-title">Dashboard Administrativo</h1>
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">📁</div>
+                        <div class="stat-content">
+                            <h3 id="total-cases">0</h3>
+                            <p>Casos Ativos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-content">
+                            <h3 id="total-testimonials">0</h3>
+                            <p>Depoimentos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">⚖️</div>
+                        <div class="stat-content">
+                            <h3 id="total-processes">0</h3>
+                            <p>Processos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-content">
+                            <h3 id="total-photos">0</h3>
+                            <p>Fotos</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="admin-testimonials">
-            <h2>Depoimentos</h2>
-            <form id="testimonial-form">
-                <input type="text" id="depoimento" placeholder="Novo depoimento" required>
-                <button type="submit" class="btn">Adicionar Depoimento</button>
-            </form>
-            <div class="testimonials-list" id="admin-testimonials-list">
-                <!-- Depoimentos do perito -->
+
+        <!-- Gerenciar Casos -->
+        <section id="casos" class="admin-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-icon">📁</span>
+                    Gerenciar Casos e Perícias
+                </h2>
+                
+                <div class="admin-form-card glass-card">
+                    <h3>Adicionar Novo Caso</h3>
+                    <form id="case-form" class="premium-form">
+                        <div class="form-group">
+                            <label for="empresa">🏢 Empresa</label>
+                            <input type="text" id="empresa" placeholder="Nome da empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">📝 Descrição da Perícia</label>
+                            <textarea id="descricao" placeholder="Descreva o caso em detalhes..." rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="foto">📸 Foto da Perícia</label>
+                            <div class="file-upload-area" id="file-upload-area">
+                                <input type="file" id="foto" accept="image/*" required>
+                                <div class="upload-placeholder">
+                                    <span class="upload-icon">📤</span>
+                                    <p>Clique ou arraste a foto aqui</p>
+                                    <small>PNG, JPG até 5MB</small>
+                                </div>
+                                <div class="upload-preview" id="upload-preview" style="display:none;">
+                                    <img id="preview-image" src="" alt="Preview">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>✅</span> Adicionar Caso
+                        </button>
+                    </form>
+                </div>
+
+                <div class="admin-cases-grid" id="admin-cases-gallery">
+                    <!-- Casos do perito -->
+                </div>
             </div>
         </section>
-        <section class="admin-processes">
-            <h2>Processos de Trabalhadores/Empresas</h2>
-            <form id="process-form">
-                <input type="text" id="trabalhador" placeholder="Nome do Trabalhador" required>
-                <input type="text" id="empresa-processo" placeholder="Empresa" required>
-                <input type="text" id="processo" placeholder="Descrição do Processo" required>
-                <button type="submit" class="btn">Adicionar Processo</button>
-            </form>
-            <div class="process-list" id="admin-process-list">
-                <!-- Processos cadastrados -->
+
+        <!-- Gerenciar Depoimentos -->
+        <section id="depoimentos" class="admin-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-icon">💬</span>
+                    Gerenciar Depoimentos
+                </h2>
+                
+                <div class="admin-form-card glass-card">
+                    <h3>Adicionar Novo Depoimento</h3>
+                    <form id="testimonial-form" class="premium-form">
+                        <div class="form-group">
+                            <label for="depoimento">💬 Depoimento</label>
+                            <textarea id="depoimento" placeholder="Digite o depoimento do cliente..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>✅</span> Adicionar Depoimento
+                        </button>
+                    </form>
+                </div>
+
+                <div class="admin-testimonials-grid" id="admin-testimonials-list">
+                    <!-- Depoimentos do perito -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gerenciar Processos -->
+        <section id="processos" class="admin-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-icon">⚖️</span>
+                    Processos de Trabalhadores/Empresas
+                </h2>
+                
+                <div class="admin-form-card glass-card">
+                    <h3>Adicionar Novo Processo</h3>
+                    <form id="process-form" class="premium-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="trabalhador">👤 Nome do Trabalhador</label>
+                                <input type="text" id="trabalhador" placeholder="Nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa-processo">🏢 Empresa</label>
+                                <input type="text" id="empresa-processo" placeholder="Nome da empresa" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="processo">📝 Descrição do Processo</label>
+                            <textarea id="processo" placeholder="Descreva o processo..." rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>✅</span> Adicionar Processo
+                        </button>
+                    </form>
+                </div>
+
+                <div class="admin-processes-grid" id="admin-process-list">
+                    <!-- Processos cadastrados -->
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Portal do Perito | pericia.avila.inc</p>
+
+    <footer class="admin-footer">
+        <div class="container">
+            <p>© 2025 <strong>Ávila Perícias</strong> | Portal Administrativo | pericia.avila.inc</p>
+        </div>
     </footer>
+
     <script src="admin.js"></script>
 </body>
 </html>
