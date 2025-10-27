@@ -1,98 +1,264 @@
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Inter', 'Montserrat', Arial, sans-serif;
     margin: 0;
-    background: #f4f6fa;
+    background: linear-gradient(135deg, #0a2540 0%, #00c6a2 100%);
     color: #222;
+    min-height: 100vh;
 }
 header {
-    background: linear-gradient(90deg, #005fa3 60%, #00c6a2 100%);
+    background: transparent;
     color: #fff;
     padding: 0;
+    position: relative;
+    z-index: 2;
 }
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px 20px 20px;
+    padding: 60px 20px 40px 20px;
     gap: 40px;
+    position: relative;
+    min-height: 480px;
 }
 .hero-img {
-    width: 180px;
-    height: 180px;
+    display: none;
+}
+.hero-img-3d {
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    border: 4px solid #fff;
-    transition: transform 0.3s;
+    box-shadow: 0 8px 32px rgba(0,198,162,0.18), 0 2px 24px rgba(10,37,64,0.12);
+    border: 6px solid #fff;
+    transition: transform 0.5s cubic-bezier(.23,1,.32,1);
+    background: linear-gradient(135deg, #00c6a2 0%, #0a2540 100%);
+    filter: drop-shadow(0 0 32px #00c6a2aa);
+    animation: float 3s ease-in-out infinite;
 }
-.hero-img:hover {
-    transform: scale(1.08) rotate(-2deg);
+.hero-img-3d:hover {
+    transform: scale(1.08) rotate(-4deg);
+    box-shadow: 0 16px 48px #00c6a2cc;
 }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
 .hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3.2rem;
+    margin-bottom: 18px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #fff;
+    text-shadow: 0 2px 24px #00c6a2cc;
+    animation: fadeInDown 1.2s cubic-bezier(.23,1,.32,1);
 }
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 .hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+    color: #eaf7f4;
+    text-shadow: 0 1px 8px #0a2540cc;
 }
+.hero-details {
+    font-size: 1rem;
+    color: #b2f7e2;
+    display: block;
+    margin-top: 2px;
+}
+
 .btn {
+    background: linear-gradient(90deg, #00c6a2 60%, #0a2540 100%);
+    color: #fff;
+    padding: 14px 38px;
+    border-radius: 32px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 24px #00c6a2aa;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+.btn:hover, .btn:focus {
+    background: linear-gradient(90deg, #0a2540 60%, #00c6a2 100%);
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px #00c6a2cc;
+}
+.btn-nav {
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    border: 2px solid #00c6a2;
+    border-radius: 24px;
+    padding: 8px 22px;
+    margin-left: 12px;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-nav:hover {
     background: #00c6a2;
     color: #fff;
-    padding: 12px 32px;
-    border-radius: 30px;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(10,37,64,0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 24px #0a2540cc;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.logo {
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #00c6a2;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 16px #00c6a2cc;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li a {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    transition: background 0.2s, transform 0.2s;
+    transition: color 0.2s;
 }
-.btn:hover {
-    background: #005fa3;
-    transform: scale(1.05);
+.nav-links li a:hover {
+    color: #00c6a2;
 }
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    background: radial-gradient(circle at 60% 40%, #00c6a2 0%, #0a2540 80%);
+    opacity: 0.18;
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    z-index: 2;
+}
+
 main {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px 10px;
 }
 .cases, .testimonials, .about {
-    margin-bottom: 40px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 24px;
+    margin-bottom: 48px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 24px;
+    box-shadow: 0 4px 32px #00c6a222;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid #00c6a2;
+    transition: box-shadow 0.2s;
 }
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0a2540;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 16px #00c6a2cc;
+    letter-spacing: -1px;
+}
+
 .cases-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
-    margin-top: 18px;
+    gap: 24px;
+    margin-top: 24px;
+    justify-content: center;
 }
+
 .case-card {
-    background: #eaf7f4;
-    border-radius: 12px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    padding: 12px;
-    width: 180px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #00c6a2cc;
+    padding: 18px;
+    width: 220px;
     text-align: center;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.3s, transform 0.3s;
+    border: 1.5px solid #00c6a2;
+    backdrop-filter: blur(6px);
+    position: relative;
+    z-index: 2;
 }
+
 .case-card:hover {
-    box-shadow: 0 4px 16px rgba(0,198,162,0.15);
+    box-shadow: 0 12px 48px #00c6a2cc;
+    transform: scale(1.06) rotate(-2deg);
 }
+
 .case-card img {
     width: 100%;
-    height: 100px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 12px #00c6a2aa;
+    transition: transform 0.3s;
 }
+
 .testimonials-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 18px;
+    display: none;
 }
+.testimonials-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 24px;
+    position: relative;
+    min-height: 120px;
+}
+.testimonial {
+    background: rgba(255,255,255,0.22);
+    border-left: 5px solid #00c6a2;
+    padding: 18px 28px;
+    border-radius: 14px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #0a2540;
+    box-shadow: 0 2px 16px #00c6a2cc;
+    margin: 0 12px;
+    min-width: 320px;
+    max-width: 480px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+    border: 1.5px solid #00c6a2;
+    position: relative;
+    z-index: 2;
+}
+
 .testimonial {
     background: #f7f7fa;
     border-left: 5px solid #00c6a2;
@@ -101,24 +267,40 @@ main {
     font-style: italic;
 }
 footer {
-    background: #005fa3;
+    background: rgba(10,37,64,0.92);
     color: #fff;
     text-align: center;
-    padding: 18px 0;
-    margin-top: 40px;
-    font-size: 1rem;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    padding: 24px 0;
+    margin-top: 48px;
+    font-size: 1.1rem;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    box-shadow: 0 -2px 24px #00c6a2cc;
+    backdrop-filter: blur(8px);
 }
+
 @media (max-width: 700px) {
-    .hero {
+    .hero-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
+    }
+    .navbar {
+        padding: 12px 10px;
     }
     main {
-        padding: 10px;
+        padding: 8px;
     }
     .case-card {
         width: 100%;
+        min-width: 0;
+    }
+    .testimonial {
+        min-width: 90vw;
+        max-width: 98vw;
+        padding: 12px 8px;
+    }
+    .hero-img-3d {
+        width: 120px;
+        height: 120px;
     }
 }

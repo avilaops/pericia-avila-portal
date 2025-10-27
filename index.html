@@ -8,39 +8,46 @@
 </head>
 <body>
     <header>
-        <div class="hero">
-            <img src="perito.jpg" alt="Foto do Perito" class="hero-img">
-            <div class="hero-text">
-                <h1>Engenheiro de Segurança do Trabalho</h1>
-                <p><strong>Guilherme Rosa Ávila Barros</strong><br>
-                Perito judicial e consultor técnico especializado em segurança jurídica do trabalho.<br>
-                <br>
-                <strong>Empresa:</strong> GRB Avila Engenharia e Segurança do Trabalho Ltda<br>
-                <strong>CNPJ:</strong> 49.572.984/0001-74<br>
-                <strong>Endereço:</strong> Rua Dom Luiz do Amaral Mousinho, 1.325, APT 22, Jardim Paulistano, Ribeirão Preto/SP<br>
-                <strong>Contato:</strong> (17) 99763-3735 | guilherme.engseg.sst@gmail.com<br>
-                <br>
-                Soluções integradas em engenharia de segurança e medicina do trabalho para toda a região de Pirangi.<br>
-                </p>
-                <a href="admin.html" class="btn">Acessar Portal do Perito</a>
+        <nav class="navbar">
+            <div class="logo">Ávila.Inc</div>
+            <ul class="nav-links">
+                <li><a href="#cases">Casos</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="admin.html" class="btn-nav">Admin</a></li>
+            </ul>
+        </nav>
+        <div class="hero premium-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <img src="perito.jpg" alt="Foto do Perito" class="hero-img-3d">
+                <div class="hero-text">
+                    <h1 class="hero-title">Excelência em Engenharia de Segurança do Trabalho</h1>
+                    <p class="hero-subtitle"><strong>Guilherme Rosa Ávila Barros</strong> — Perito judicial e consultor técnico<br>
+                    <span class="hero-details">GRB Avila Engenharia e Segurança do Trabalho Ltda | CNPJ: 49.572.984/0001-74</span><br>
+                    <span class="hero-details">Endereço: Rua Dom Luiz do Amaral Mousinho, 1.325, APT 22, Jardim Paulistano, Ribeirão Preto/SP</span><br>
+                    <span class="hero-details">Contato: (17) 99763-3735 | guilherme.engseg.sst@gmail.com</span>
+                    </p>
+                    <a href="admin.html" class="btn hero-btn">Acessar Portal do Perito</a>
+                </div>
             </div>
         </div>
     </header>
     <main>
-        <section class="cases">
-            <h2>Casos Recentes</h2>
+        <section class="cases" id="cases">
+            <h2 class="section-title">Casos Recentes</h2>
             <div class="cases-gallery" id="cases-gallery">
                 <!-- Galeria dinâmica de fotos/casos -->
             </div>
         </section>
-        <section class="testimonials">
-            <h2>Depoimentos</h2>
-            <div class="testimonials-list" id="testimonials-list">
-                <!-- Depoimentos dinâmicos -->
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="testimonials-carousel" id="testimonials-carousel">
+                <!-- Carrossel de depoimentos -->
             </div>
         </section>
         <section class="about">
-            <h2>Sobre o Perito</h2>
+            <h2 class="section-title" id="about">Sobre o Perito</h2>
             <p><strong>O que faz um engenheiro de segurança do trabalho?</strong><br>
             Identifica, avalia e controla riscos que possam afetar a saúde e a integridade física dos trabalhadores.<br>
             <ul>

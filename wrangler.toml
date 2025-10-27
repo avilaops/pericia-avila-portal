@@ -1,0 +1,9 @@
+name = "pericia-avila-portal"
+type = "javascript"
+account_id = "<SEU_ACCOUNT_ID>"
+workers_dev = false
+route = "pericia.avila.inc/*"
+zone_id = "<SEU_ZONE_ID>"
+[site]
+bucket = "./"
+entry-point = "index.html"
