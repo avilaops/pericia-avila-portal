@@ -2,6 +2,9 @@
 // Portal administrativo: cadastro de casos, depoimentos e processos
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Configurações
+    const ANIMATION_MAX_STEPS = 30; // Limite de steps para animação de contadores
+    
     // LocalStorage para persistência simples
     const casesKey = 'peritoCases';
     const testimonialsKey = 'peritoTestimonials';
@@ -235,19 +238,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function animateCounter(id, target) {
         const element = document.getElementById(id);
         const current = parseInt(element.textContent) || 0;
-        const increment = target > current ? 1 : -1;
-        const duration = 500;
-        const steps = Math.min(Math.abs(target - current), 30); // Limit to 30 steps max
-        const stepDuration = steps > 0 ? duration / steps : 0;
-
-        if (steps === 0) {
-            element.textContent = target;
+        
+        if (current === target) {
             return;
         }
+        
+        const duration = 500;
+        const steps = Math.min(Math.abs(target - current), ANIMATION_MAX_STEPS);
+        const stepDuration = duration / steps;
+        const increment = (target - current) / steps;
 
-        const stepValue = (target - current) / steps;
-        let count = current;
         let currentStep = 0;
+        let displayValue = current;
         
         const timer = setInterval(() => {
             currentStep++;
@@ -255,8 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.textContent = target;
                 clearInterval(timer);
             } else {
-                count += stepValue;
-                element.textContent = Math.round(count);
+                displayValue += increment;
+                element.textContent = Math.round(displayValue);
             }
         }, stepDuration);
     }
