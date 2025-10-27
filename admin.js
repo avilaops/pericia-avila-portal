@@ -46,14 +46,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        toast.innerHTML = `
-            <span class="toast-icon">${icons[type]}</span>
-            <div class="toast-content">
-                <div class="toast-title">${titles[type]}</div>
-                <div class="toast-message">${message}</div>
-            </div>
-            <button class="toast-close" onclick="this.parentElement.remove()">×</button>
-        `;
+        
+        const toastIcon = document.createElement('span');
+        toastIcon.className = 'toast-icon';
+        toastIcon.textContent = icons[type];
+        
+        const toastContent = document.createElement('div');
+        toastContent.className = 'toast-content';
+        
+        const toastTitle = document.createElement('div');
+        toastTitle.className = 'toast-title';
+        toastTitle.textContent = titles[type];
+        
+        const toastMessage = document.createElement('div');
+        toastMessage.className = 'toast-message';
+        toastMessage.textContent = message;
+        
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'toast-close';
+        closeBtn.textContent = '×';
+        closeBtn.addEventListener('click', () => toast.remove());
+        
+        toastContent.appendChild(toastTitle);
+        toastContent.appendChild(toastMessage);
+        toast.appendChild(toastIcon);
+        toast.appendChild(toastContent);
+        toast.appendChild(closeBtn);
 
         container.appendChild(toast);
 
@@ -69,27 +87,42 @@ document.addEventListener('DOMContentLoaded', function() {
     function showConfirmModal(message, onConfirm) {
         const overlay = document.createElement('div');
         overlay.className = 'modal-overlay';
-        overlay.innerHTML = `
-            <div class="modal">
-                <h3 class="modal-title">⚠️ Confirmar Ação</h3>
-                <p class="modal-message">${message}</p>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-cancel">Cancelar</button>
-                    <button class="modal-btn modal-btn-confirm">Confirmar</button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(overlay);
-
-        overlay.querySelector('.modal-btn-cancel').addEventListener('click', () => {
-            overlay.remove();
-        });
-
-        overlay.querySelector('.modal-btn-confirm').addEventListener('click', () => {
+        
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        
+        const modalTitle = document.createElement('h3');
+        modalTitle.className = 'modal-title';
+        modalTitle.textContent = '⚠️ Confirmar Ação';
+        
+        const modalMessage = document.createElement('p');
+        modalMessage.className = 'modal-message';
+        modalMessage.textContent = message;
+        
+        const modalActions = document.createElement('div');
+        modalActions.className = 'modal-actions';
+        
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'modal-btn modal-btn-cancel';
+        cancelBtn.textContent = 'Cancelar';
+        cancelBtn.addEventListener('click', () => overlay.remove());
+        
+        const confirmBtn = document.createElement('button');
+        confirmBtn.className = 'modal-btn modal-btn-confirm';
+        confirmBtn.textContent = 'Confirmar';
+        confirmBtn.addEventListener('click', () => {
             onConfirm();
             overlay.remove();
         });
+        
+        modalActions.appendChild(cancelBtn);
+        modalActions.appendChild(confirmBtn);
+        modal.appendChild(modalTitle);
+        modal.appendChild(modalMessage);
+        modal.appendChild(modalActions);
+        overlay.appendChild(modal);
+
+        document.body.appendChild(overlay);
 
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
@@ -204,15 +237,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const current = parseInt(element.textContent) || 0;
         const increment = target > current ? 1 : -1;
         const duration = 500;
-        const steps = Math.abs(target - current);
+        const steps = Math.min(Math.abs(target - current), 30); // Limit to 30 steps max
         const stepDuration = steps > 0 ? duration / steps : 0;
 
+        if (steps === 0) {
+            element.textContent = target;
+            return;
+        }
+
+        const stepValue = (target - current) / steps;
         let count = current;
+        let currentStep = 0;
+        
         const timer = setInterval(() => {
-            count += increment;
-            element.textContent = count;
-            if (count === target) {
+            currentStep++;
+            if (currentStep >= steps) {
+                element.textContent = target;
                 clearInterval(timer);
+            } else {
+                count += stepValue;
+                element.textContent = Math.round(count);
             }
         }, stepDuration);
     }
@@ -277,16 +321,35 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = document.createElement('div');
             card.className = 'admin-case-card';
             card.style.animationDelay = `${idx * 0.1}s`;
-            card.innerHTML = `
-                <img src="${caso.foto}" alt="${caso.empresa}" loading="lazy">
-                <div class="admin-case-content">
-                    <h3>🏢 ${caso.empresa}</h3>
-                    <p>${caso.descricao}</p>
-                    <div class="admin-case-actions">
-                        <button onclick="removeCase(${idx})" class="btn-delete">🗑️ Remover</button>
-                    </div>
-                </div>
-            `;
+            
+            const img = document.createElement('img');
+            img.src = caso.foto;
+            img.alt = caso.empresa;
+            img.loading = 'lazy';
+            
+            const content = document.createElement('div');
+            content.className = 'admin-case-content';
+            
+            const title = document.createElement('h3');
+            title.textContent = `🏢 ${caso.empresa}`;
+            
+            const description = document.createElement('p');
+            description.textContent = caso.descricao;
+            
+            const actions = document.createElement('div');
+            actions.className = 'admin-case-actions';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-delete';
+            deleteBtn.textContent = '🗑️ Remover';
+            deleteBtn.addEventListener('click', () => removeCase(idx));
+            
+            actions.appendChild(deleteBtn);
+            content.appendChild(title);
+            content.appendChild(description);
+            content.appendChild(actions);
+            card.appendChild(img);
+            card.appendChild(content);
             adminCasesGallery.appendChild(card);
         });
     }
@@ -383,12 +446,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = document.createElement('div');
             card.className = 'admin-testimonial-card';
             card.style.animationDelay = `${idx * 0.1}s`;
-            card.innerHTML = `
-                <p>"${dep}"</p>
-                <div class="admin-case-actions">
-                    <button onclick="removeTestimonial(${idx})" class="btn-delete">🗑️ Remover</button>
-                </div>
-            `;
+            
+            const quote = document.createElement('p');
+            quote.textContent = `"${dep}"`;
+            
+            const actions = document.createElement('div');
+            actions.className = 'admin-case-actions';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-delete';
+            deleteBtn.textContent = '🗑️ Remover';
+            deleteBtn.addEventListener('click', () => removeTestimonial(idx));
+            
+            actions.appendChild(deleteBtn);
+            card.appendChild(quote);
+            card.appendChild(actions);
             adminTestimonialsList.appendChild(card);
         });
     }
@@ -424,25 +496,23 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-            const arr = getData(testimonialsKey);
-            arr.push(depoimento);
-            setData(testimonialsKey, arr);
-            
-            renderTestimonials();
-            updateStats();
-            testimonialForm.reset();
+        const arr = getData(testimonialsKey);
+        arr.push(depoimento);
+        setData(testimonialsKey, arr);
+        
+        renderTestimonials();
+        updateStats();
+        testimonialForm.reset();
 
-            // Remove validation classes
-            testimonialForm.querySelectorAll('.valid, .invalid').forEach(el => {
-                el.classList.remove('valid', 'invalid');
-            });
+        // Remove validation classes
+        testimonialForm.querySelectorAll('.valid, .invalid').forEach(el => {
+            el.classList.remove('valid', 'invalid');
+        });
 
-            submitBtn.classList.remove('loading');
-            submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
 
-            showToast('Depoimento adicionado com sucesso!', 'success');
-        }, 500);
+        showToast('Depoimento adicionado com sucesso!', 'success');
     });
 
     // ============================================
@@ -469,18 +539,39 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = document.createElement('div');
             card.className = 'admin-process-card';
             card.style.animationDelay = `${idx * 0.1}s`;
-            card.innerHTML = `
-                <div class="process-header">
-                    <div class="process-info">
-                        <h4>👤 ${proc.trabalhador}</h4>
-                        <span class="company-name">🏢 ${proc.empresa}</span>
-                    </div>
-                </div>
-                <p class="process-description">${proc.processo}</p>
-                <div class="admin-case-actions">
-                    <button onclick="removeProcess(${idx})" class="btn-delete">🗑️ Remover</button>
-                </div>
-            `;
+            
+            const header = document.createElement('div');
+            header.className = 'process-header';
+            
+            const info = document.createElement('div');
+            info.className = 'process-info';
+            
+            const name = document.createElement('h4');
+            name.textContent = `👤 ${proc.trabalhador}`;
+            
+            const company = document.createElement('span');
+            company.className = 'company-name';
+            company.textContent = `🏢 ${proc.empresa}`;
+            
+            const description = document.createElement('p');
+            description.className = 'process-description';
+            description.textContent = proc.processo;
+            
+            const actions = document.createElement('div');
+            actions.className = 'admin-case-actions';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-delete';
+            deleteBtn.textContent = '🗑️ Remover';
+            deleteBtn.addEventListener('click', () => removeProcess(idx));
+            
+            info.appendChild(name);
+            info.appendChild(company);
+            header.appendChild(info);
+            actions.appendChild(deleteBtn);
+            card.appendChild(header);
+            card.appendChild(description);
+            card.appendChild(actions);
             adminProcessList.appendChild(card);
         });
     }
@@ -518,25 +609,23 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-            const arr = getData(processesKey);
-            arr.push({ trabalhador, empresa, processo });
-            setData(processesKey, arr);
-            
-            renderProcesses();
-            updateStats();
-            processForm.reset();
+        const arr = getData(processesKey);
+        arr.push({ trabalhador, empresa, processo });
+        setData(processesKey, arr);
+        
+        renderProcesses();
+        updateStats();
+        processForm.reset();
 
-            // Remove validation classes
-            processForm.querySelectorAll('.valid, .invalid').forEach(el => {
-                el.classList.remove('valid', 'invalid');
-            });
+        // Remove validation classes
+        processForm.querySelectorAll('.valid, .invalid').forEach(el => {
+            el.classList.remove('valid', 'invalid');
+        });
 
-            submitBtn.classList.remove('loading');
-            submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
 
-            showToast(`Processo de "${trabalhador}" adicionado com sucesso!`, 'success');
-        }, 500);
+        showToast(`Processo de "${trabalhador}" adicionado com sucesso!`, 'success');
     });
 
     // ============================================
