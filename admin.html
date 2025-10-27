@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Perito - Administrativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Portal Administrativo do Perito</h1>
+        <nav>
+            <a href="index.html" class="btn">Página Inicial</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-cases">
+            <h2>Meus Casos e Perícias</h2>
+            <form id="case-form">
+                <input type="text" id="empresa" placeholder="Empresa" required>
+                <input type="text" id="descricao" placeholder="Descrição da Perícia" required>
+                <input type="file" id="foto" accept="image/*" required>
+                <button type="submit" class="btn">Adicionar Caso</button>
+            </form>
+            <div class="cases-gallery" id="admin-cases-gallery">
+                <!-- Casos do perito -->
+            </div>
+        </section>
+        <section class="admin-testimonials">
+            <h2>Depoimentos</h2>
+            <form id="testimonial-form">
+                <input type="text" id="depoimento" placeholder="Novo depoimento" required>
+                <button type="submit" class="btn">Adicionar Depoimento</button>
+            </form>
+            <div class="testimonials-list" id="admin-testimonials-list">
+                <!-- Depoimentos do perito -->
+            </div>
+        </section>
+        <section class="admin-processes">
+            <h2>Processos de Trabalhadores/Empresas</h2>
+            <form id="process-form">
+                <input type="text" id="trabalhador" placeholder="Nome do Trabalhador" required>
+                <input type="text" id="empresa-processo" placeholder="Empresa" required>
+                <input type="text" id="processo" placeholder="Descrição do Processo" required>
+                <button type="submit" class="btn">Adicionar Processo</button>
+            </form>
+            <div class="process-list" id="admin-process-list">
+                <!-- Processos cadastrados -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Portal do Perito | pericia.avila.inc</p>
+    </footer>
+    <script src="admin.js"></script>
+</body>
+</html>
